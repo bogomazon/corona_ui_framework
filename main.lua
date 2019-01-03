@@ -21,7 +21,7 @@ local toPx = ui.screen.toPx
 
 
 local function touch()
-	ui.newToast("my toast!")
+	ui.newToast({label = {text = "my toast!"}})
 end
 
 local function showLoader()
@@ -33,11 +33,11 @@ local function showLoader()
 end
 
 local function switchTouch(e)
-	ui.newToast("is on: "..tostring(e.isOn))
+	ui.newToast({label = {text = "is on: "..tostring(e.isOn)}})
 end
 
 local function sliderTouch(e)
-	ui.newToast("progress: "..e.progress)
+    ui.newToast({label = {text = "progress: "..e.progress}})
 end
 
 local x = display.contentWidth*.5
@@ -57,9 +57,10 @@ local function buildSearch()
     search_bar.x = display.contentWidth*.5
     search_bar.y = search_bar.height*.5
 
-    local no_data = ui.newNoData({tag = "no_data"})
-    no_data.x = display.contentWidth*.5
-    no_data.y = display.contentHeight*.5
+    -- not working
+    --local no_data = ui.newNoData({tag = "no_data"})
+    --no_data.x = display.contentWidth*.5
+    --no_data.y = display.contentHeight*.5
 end
 -- navbar requires "http://ionicons.com/" font for icons. Just drop the font next to main.lua file in your project.
 local navbar = ui.newNavbar({
